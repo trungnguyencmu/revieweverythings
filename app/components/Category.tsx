@@ -4,13 +4,11 @@ import Link from 'next/link';
 
 const CategoryComponent = ({ category }: { category: Category }) => {
   return (
-    <div className="flex-row flex items-center max-w-full justify-between">
-      <Link
-        href={`danh-muc/${category.slug}`}
-        className="font-bold text-xl bg-gradient-to-r from-orange-400
-                  via-red-500 to-purple-600 bg-clip-text text-transparent flex gap-2 items-center"
-      >
-        <div>{category.title}</div>
+    <div className="flex-row flex items-center max-w-full justify-between mb-3">
+      <Link href={`danh-muc/${category.slug}`} className="flex gap-2 items-center">
+        <h1 className="text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-5xl dark:text-white">
+          {category.title}
+        </h1>
       </Link>
 
       <Link href={`danh-muc/${category.slug}`} className="text-gray-600 underline">

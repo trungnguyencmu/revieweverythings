@@ -12,6 +12,7 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import Head from "next/head";
 
 config.autoAddCss = false;
 
@@ -38,7 +39,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   };
 
   const handleChangePage = (slug: string) => {
-    console.log("tmpSlug", slug);
     setActivePage(slug);
   };
   const handleActiveNav = () => {
@@ -46,6 +46,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   };
   return (
     <html lang="en">
+      <Head>
+        <title>Review Everythings</title>
+        <meta
+          key="desc"
+          name="description"
+          content="Khám phá những bài đánh giá chân thành về mọi thứ: sản phẩm, dịch vụ, sách, phim và nhiều hơn nữa. Xem nhận xét chi tiết và đánh giá chất lượng để giúp bạn đưa ra quyết định thông thái. Đọc ngay để có cái nhìn toàn diện về những gì bạn quan tâm."
+        />
+
+        <meta
+          property="og:title"
+          content="Đánh Giá Mọi Thứ - Xem Nhận Xét Chân Thành về Sản Phẩm, Dịch Vụ và Nhiều Hơn Nữa"
+        />
+
+        <meta
+          property="og:description"
+          content="And a social description for our cool page"
+        />
+        <meta property="og:description" content="Khám phá những bài đánh giá chân thành về mọi thứ: sản phẩm, dịch vụ, sách, phim và nhiều hơn nữa. Xem nhận xét chi tiết và đánh giá chất lượng để giúp bạn đưa ra quyết định thông thái. Đọc ngay để có cái nhìn toàn diện về những gì bạn quan tâm." />
+
+      </Head>
       <body className="body">
         <div className="header-2">
           <nav className="bg-white py-2 md:py-4">
