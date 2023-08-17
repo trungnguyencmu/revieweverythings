@@ -11,9 +11,10 @@ const PostItem = ({ post }: { post: Post }) => {
         <Image
           src={post.mainImage}
           alt={post.title}
-          width={750}
-          height={300}
-          className="object-cover rounded-lg border"
+          width={370}
+          height={220}
+          className="rounded-lg h-48"
+          style={{ objectFit: "cover" }}
         />
         <h2 className="my-2 font-extrabold bg-gradient-to-r ">{post.title}</h2>
       </Link>

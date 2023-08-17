@@ -89,6 +89,20 @@ export async function getPostsWithCategoryName(category: Category): Promise<Post
 }
 
 export async function getPost(slug: string): Promise<Post> {
+  const bodyField = `
+  body[]{
+    ...,
+    // add your custom blocks here (we don't need to do that for images, because we will get the image url from the @sanity/image-url package)
+    
+    markDefs[]{ 
+        // so here we make sure to enclude all other data points are included
+        ..., 
+        // then we define that if a child of the markDef array is of the type internalLink, we want to get the referenced doc value of slug and combine that with a / 
+        _type == "internalLink" => { "href": "/"+ @.reference-> slug.current },
+        },
+  }
+`;
+
   return createClient(clientConfig).fetch(
     groq`*[_type == "post" && slug.current == $slug][0]{
       _id,
@@ -98,7 +112,7 @@ export async function getPost(slug: string): Promise<Post> {
       "slug": slug.current,
       content,
       "mainImage": mainImage.asset->url,
-      body
+      ${bodyField}
     }`,
     { slug }
   );

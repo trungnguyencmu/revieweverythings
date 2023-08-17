@@ -16,7 +16,7 @@ const PostItemsContainer = ({category}: {category: Category}) => {
     fetchData();
   }, [category.title]);
   return (
-    <div className="md:flex md:flex-wrap mt-1">
+    <div className="md:flex md:flex-wrap mt-1 md:gap-4">
       {posts.map((post) => (
         <div className="md:w-1/4 md:mt-0" key={post._id}>
           <PostItem post={post} />

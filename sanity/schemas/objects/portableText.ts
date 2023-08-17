@@ -36,12 +36,21 @@ export default {
             // everybody needs a URL link
           },
           {
-            title: "Internal link",
-            name: "internalLink",
-            type: "reference",
-            to: [{ type: "post" }, { type: "product" }],
-            // links, but to internal docs
-          },
+            name: 'internalLink',
+            type: 'object',
+            title: 'Internal link',
+            fields: [
+              {
+                name: 'reference',
+                type: 'reference',
+                title: 'Reference',
+                to: [
+                  { type: 'post' },
+                  // other types you may want to link to
+                ]
+              }
+            ]
+          }
         ],
       },
     },
