@@ -1,7 +1,7 @@
 /** @format */
 "use client"
-import Image from "next/image";
 import CategorySectionContainer from "../containers/CategorySectionContainer";
+import Image from "next/image";
 
 export default function Home() {
   
@@ -17,11 +17,14 @@ export default function Home() {
             <button className="bg-indigo-600 text-white py-2 px-6 rounded-full text-xl mt-6">
               Bắt đầu nào
             </button>
-            <div className="mt-4">
+            <div className=""></div>
+            <div className="mt-4 flex flex-row items-center justify-center">
               <Image
-                src="//via.placeholder.com/1000x785/fff?text=iMac+Mockup"
-                alt="mockup"
+                src="/images/review.png"
+                alt="review everything"
                 className="d-block max-w-full rounded shadow-md"
+                width={320}
+                height={400}
               />
             </div>
           </div>
