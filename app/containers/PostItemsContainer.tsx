@@ -18,8 +18,8 @@ const PostItemsContainer = ({category}: {category: Category}) => {
   return (
     <div className="md:flex md:flex-wrap mt-1">
       {posts.map((post) => (
-        <div className="md:w-1/4 md:mt-0">
-          <PostItem post={post} key={post._id} />
+        <div className="md:w-1/4 md:mt-0" key={post._id}>
+          <PostItem post={post} />
         </div>
       ))}
     </div>
