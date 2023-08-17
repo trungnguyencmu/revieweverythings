@@ -39,7 +39,7 @@ export default {
             title: "Internal link",
             name: "internalLink",
             type: "reference",
-            to: [{ type: "article" }, { type: "product" }],
+            to: [{ type: "post" }, { type: "product" }],
             // links, but to internal docs
           },
         ],
@@ -51,13 +51,6 @@ export default {
       type: "reference",
       to: [{ type: "product" }],
       // product embed
-    },
-    {
-      title: "Article",
-      name: "article",
-      type: "reference",
-      to: [{ type: "article" }],
-      // article embed
     },
     {
       title: "Image",

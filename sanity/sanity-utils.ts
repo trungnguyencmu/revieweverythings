@@ -81,8 +81,34 @@ export async function getPostsWithCategoryName(category: Category): Promise<Post
         categories[] -> {
           title,
           slug
-        }
+        },
+        "slug": slug.current,
       }`,
     { keyword: category.slug }
   );
 }
+
+export async function getPost(slug: string): Promise<Post> {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "post" && slug.current == $slug][0]{
+      _id,
+      _createdAt,
+      title,
+      description,
+      "slug": slug.current,
+      content,
+      "mainImage": mainImage.asset->url,
+      body
+    }`,
+    { slug }
+  );
+}
+// export type Post = {
+//   _id: string;
+//   _createdAt: Date;
+//   title: string;
+//   description: string;
+//   slug: string;
+//   mainImage: string;
+//   body: PortableTextBlock[];
+// };

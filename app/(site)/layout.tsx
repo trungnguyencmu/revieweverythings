@@ -26,7 +26,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     const fetchData = () => {
       getPages()
         .then((tmpPages) => {
-          console.log("tmpPages", tmpPages);
           setPages(tmpPages);
         })
         .catch(console.error);
@@ -142,7 +141,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </nav>
         </div>
         <main className="bg-slate-50">
-          <div className="container px-4 mx-auto md:flex md:items-center ">
+          <div className="container px-4 mx-auto md:flex md:items-center py-8">
             {children}
           </div>
         </main>
