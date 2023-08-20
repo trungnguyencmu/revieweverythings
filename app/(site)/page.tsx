@@ -14,10 +14,15 @@ export default function Home() {
               Khám Phá, So Sánh, Quyết Định
             </h1>
             <h2>Điểm Đến Đánh Giá Sản Phẩm Tối Ưu Của Bạn</h2>
-            <button className="bg-indigo-600 text-white py-2 px-6 rounded-full text-xl mt-6">
-              Bắt đầu nào
-            </button>
-            <div className=""></div>
+            <div className="my-6">
+              <a
+                className="bg-indigo-600 text-white py-2 px-6 rounded-full text-xl my-6"
+                href="#category-list"
+              >
+                Bắt đầu nào
+              </a>
+            </div>
+
             <div className="mt-4 flex flex-row items-center justify-center">
               <Image
                 src="/images/review.png"
@@ -66,7 +71,9 @@ export default function Home() {
         </div>
       </div>
       <hr />
-      <CategorySectionContainer />
+      <div id="category-list">
+        <CategorySectionContainer />
+      </div>
     </div>
   );
 }

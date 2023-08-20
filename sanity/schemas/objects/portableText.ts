@@ -36,21 +36,21 @@ export default {
             // everybody needs a URL link
           },
           {
-            name: 'internalLink',
-            type: 'object',
-            title: 'Internal link',
+            name: "internalLink",
+            type: "object",
+            title: "Internal link",
             fields: [
               {
-                name: 'reference',
-                type: 'reference',
-                title: 'Reference',
+                name: "reference",
+                type: "reference",
+                title: "Reference",
                 to: [
-                  { type: 'post' },
+                  { type: "post" },
                   // other types you may want to link to
-                ]
-              }
-            ]
-          }
+                ],
+              },
+            ],
+          },
         ],
       },
     },
@@ -59,6 +59,13 @@ export default {
       name: "product",
       type: "reference",
       to: [{ type: "product" }],
+      // product embed
+    },
+    {
+      title: "Post",
+      name: "post",
+      type: "reference",
+      to: [{ type: "post" }],
       // product embed
     },
     {
