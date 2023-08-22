@@ -3,6 +3,7 @@
 import PostReview from "@/app/components/PostReview";
 import { getPost } from "@/sanity/sanity-utils";
 import type { Metadata } from "next";
+import { Suspense } from "react";
 
 type Props = {
   params: { slug: string };
@@ -17,7 +18,6 @@ export async function generateMetadata(
 
   // fetch data
   const product = await getPost(slug);
-
   return {
     title: product.title,
    
@@ -25,5 +25,7 @@ export async function generateMetadata(
 }
 
 export default function Page({ params }: Props) {
-  return <PostReview params ={params} />;
+  return (
+    <PostReview params={params} />
+  );
 }

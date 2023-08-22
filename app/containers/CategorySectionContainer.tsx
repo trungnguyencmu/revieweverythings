@@ -22,7 +22,7 @@ const CategorySectionContainer = () => {
       {categories.map((category, index) => (
         <div key={category._id} className="py-6">
           <CategoryComponent category={category} />
-          <PostItemsContainer category={category} />
+          <PostItemsContainer slug={category.slug} />
           {index + 1 !== categories.length && (
             <div className="flex flex-row justify-center">
               <div className="w-20 border-t-2 border-solid border-indigo-200 inline-block mb-3 my-6"></div>

@@ -21,6 +21,23 @@ export async function getProjects(): Promise<Project[]> {
   );
 }
 
+export async function getPostsFollowCategory(slug: string): Promise<Project[]> {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "post" && $keyword in categories[]->slug.current]{
+          _id,
+          _createdAt,
+          title,
+          "mainImage": mainImage.asset->url,
+          categories[] -> {
+            title,
+            slug
+          },
+          "slug": slug.current,
+        }`,
+    { keyword: slug }
+  );
+}
+
 export async function getProject(slug: string): Promise<Project> {
   return createClient(clientConfig).fetch(
     groq`*[_type == "project" && slug.current == $slug][0]{
@@ -71,12 +88,29 @@ export async function getCategories(): Promise<Category[]> {
   );
 }
 
-export async function getPostsWithCategoryName(category: Category): Promise<Post[]> {
+export async function getCategory(slug: string): Promise<Category> {
   return createClient(clientConfig).fetch(
-    groq`*[_type == "post" && $keyword in categories[]->slug.current]{
+    groq`*[_type == "category" && slug.current == $slug][0]{
+      _id,
+      _createdAt,
+      title,
+      "slug": slug.current,
+    }`,
+    { slug }
+  );
+}
+
+export async function getPostsWithCategoryName(
+  slug: string,
+  from = 0,
+  to = 10
+): Promise<Post[]> {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "post" && $keyword in categories[]->slug.current][${from}...${to}] | order(_createdAt asc){
         _id,
         _createdAt,
         title,
+        description,
         "mainImage": mainImage.asset->url,
         categories[] -> {
           title,
@@ -84,7 +118,7 @@ export async function getPostsWithCategoryName(category: Category): Promise<Post
         },
         "slug": slug.current,
       }`,
-    { keyword: category.slug }
+    { keyword: slug }
   );
 }
 
@@ -95,11 +129,12 @@ export async function getPost(slug: string): Promise<Post> {
     // add your custom blocks here (we don't need to do that for images, because we will get the image url from the @sanity/image-url package)
     
     markDefs[]{ 
-        // so here we make sure to enclude all other data points are included
-        ..., 
-        // then we define that if a child of the markDef array is of the type internalLink, we want to get the referenced doc value of slug and combine that with a / 
-        _type == "internalLink" => { "href": "/"+ @.reference-> slug.current },
-        },
+      // so here we make sure to enclude all other data points are included
+      ..., 
+      // then we define that if a child of the markDef array is of the type internalLink, we want to get the referenced doc value of slug and combine that with a / 
+      _type == "internalLink" => { "href": "/"+ @.reference-> slug.current },
+    },
+    _type == "product" => @->,
   }
 `;
 
@@ -117,12 +152,3 @@ export async function getPost(slug: string): Promise<Post> {
     { slug }
   );
 }
-// export type Post = {
-//   _id: string;
-//   _createdAt: Date;
-//   title: string;
-//   description: string;
-//   slug: string;
-//   mainImage: string;
-//   body: PortableTextBlock[];
-// };

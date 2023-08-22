@@ -18,28 +18,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
  
   return (
     <html lang="en">
-      {/* <Head>
-        <title>Review Everythings</title>
-        <meta
-          key="desc"
-          name="description"
-          content="Khám phá những bài đánh giá chân thành về mọi thứ: sản phẩm, dịch vụ, sách, phim và nhiều hơn nữa. Xem nhận xét chi tiết và đánh giá chất lượng để giúp bạn đưa ra quyết định thông thái. Đọc ngay để có cái nhìn toàn diện về những gì bạn quan tâm."
-        />
-
-        <meta
-          property="og:title"
-          content="Đánh Giá Mọi Thứ - Xem Nhận Xét Chân Thành về Sản Phẩm, Dịch Vụ và Nhiều Hơn Nữa"
-        />
-
-        <meta
-          property="og:description"
-          content="And a social description for our cool page"
-        />
-        <meta
-          property="og:description"
-          content="Khám phá những bài đánh giá chân thành về mọi thứ: sản phẩm, dịch vụ, sách, phim và nhiều hơn nữa. Xem nhận xét chi tiết và đánh giá chất lượng để giúp bạn đưa ra quyết định thông thái. Đọc ngay để có cái nhìn toàn diện về những gì bạn quan tâm."
-        />
-      </Head> */}
       <body className="body">
         <Header />
         <main className="bg-slate-50">

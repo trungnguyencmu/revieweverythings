@@ -1,11 +1,12 @@
 "use client";
-import React from 'react';
+import React, { Suspense } from 'react';
 
 import { getPost } from "@/sanity/sanity-utils";
 import { Post } from "@/types/Post";
 import { PortableText } from "@portabletext/react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import Loading from './Loading';
 
 type Props = {
   params: { slug: string };
@@ -34,20 +35,21 @@ const PostReview = ({params}: Props) => {
       return <div>123123</div>;
     },
   };
-
-  if (!page) {
-    return <div>Loading...</div>;
-  }
 return (
-  <div>
-    <h1 className="bg-gradient-to-r from-orange-400 via-red-500 to-purple-600 bg-clip-text text-transparent text-5xl drop-shadow font-extrabold">
-      {page.title}
-    </h1>
-    <div className="text-lg text-gray-700 mt-10">
-      <PortableText value={page.body} components={customBlockComponents} />
+  <Suspense fallback={<Loading />}>
+    <div>
+      <h1 className="text-5xl drop-shadow font-extrabold">
+        {page?.title}
+      </h1>
+      {page?.body && (
+        <div className="text-lg text-gray-700 mt-10">
+          <PortableText value={page?.body} components={customBlockComponents} />
+        </div>
+      )}
     </div>
+
     {/* <div>{page.body?.product}</div> */}
-  </div>
+  </Suspense>
 );
 };
 export default PostReview;
