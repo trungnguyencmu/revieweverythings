@@ -1,29 +1,31 @@
-"use client"
+/** @format */
 
-import PostItemsContainer from '@/app/containers/PostItemsContainer';
-import { getCategory } from '@/sanity/sanity-utils';
-import { Category } from '@/types/Category';
-import React, { useEffect, useState } from 'react';
+"use client";
 
-const CategoryPostListPage = ({slug}: {slug: string}) => {
-  const [category, setCategory] = useState<Category>()
+import PostItemsContainer from "@/app/containers/PostItemsContainer";
+import { getCategory } from "@/sanity/sanity-utils";
+import { Category } from "@/types/Category";
+import React, { useEffect, useState } from "react";
+
+const CategoryPostListPage = ({ slug }: { slug: string }) => {
+  const [category, setCategory] = useState<Category>();
   useEffect(() => {
     const fetchData = async () => {
-      const tmpCategory = await getCategory(slug)
-      setCategory(tmpCategory)
-    }
-    fetchData()
-  },[])
+      const tmpCategory = await getCategory(slug);
+      setCategory(tmpCategory);
+    };
+    fetchData();
+  }, []);
   return (
     <div>
-      <h1 className="text-3xl md:text-4xl font-medium mb-2 font-bold py-8 underline">
+      <h1 className="text-3xl font-bold tracking-tight text-neutral-900 dark:text-white sm:text-4xl py-8">
         {category?.title}
       </h1>
       <PostItemsContainer
         slug={slug}
-        wrapClass="flex flex-column"
-        itemClass="full-width"
-        postItemClass='flex flex-row'
+        wrapClass="flex flex-col gap-8"
+        itemClass="w-full"
+        postItemClass="flex flex-row"
       />
     </div>
   );

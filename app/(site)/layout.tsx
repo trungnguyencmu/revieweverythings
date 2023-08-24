@@ -8,17 +8,16 @@ import Header from "../components/Header";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Đánh Giá Mọi Thứ - Xem Nhận Xét Chân Thành về Sản Phẩm, Dịch Vụ và Nhiều Hơn Nữa",
-  description: "Khám phá những bài đánh giá chân thành về mọi thứ: sản phẩm, dịch vụ, sách, phim và nhiều hơn nữa. Xem nhận xét chi tiết và đánh giá chất lượng để giúp bạn đưa ra quyết định thông thái. Đọc ngay để có cái nhìn toàn diện về những gì bạn quan tâm.",
+  title:
+    "Đánh Giá Mọi Thứ - Xem Nhận Xét Chân Thành về Sản Phẩm, Dịch Vụ và Nhiều Hơn Nữa",
+  description:
+    "Khám phá những bài đánh giá chân thành về mọi thứ: sản phẩm, dịch vụ, sách, phim và nhiều hơn nữa. Xem nhận xét chi tiết và đánh giá chất lượng để giúp bạn đưa ra quyết định thông thái. Đọc ngay để có cái nhìn toàn diện về những gì bạn quan tâm.",
 };
- 
-
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
- 
   return (
     <html lang="en">
-      <body className="body">
+      <body className="bg-neutral-100 scrollbar-hide dark:bg-neutral-900">
         <Header />
         <main className="bg-slate-50">
           <div className="container px-4 mx-auto md:flex md:items-center py-8">
