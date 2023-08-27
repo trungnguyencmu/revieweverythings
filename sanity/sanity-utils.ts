@@ -135,7 +135,10 @@ export async function getPost(slug: string): Promise<Post> {
       // then we define that if a child of the markDef array is of the type internalLink, we want to get the referenced doc value of slug and combine that with a / 
       _type == "internalLink" => { "href": "/"+ @.reference-> slug.current },
     },
-    _type == "product" => @->,
+    _type == "image" => {
+      ...,
+      asset->
+    }
   }
 `;
 

@@ -2,6 +2,11 @@
 
 export const CATEGORY_LIST = [
   {
+    _id: "0",
+    slug: "cong-nghe",
+    title: "Công Nghệ",
+  },
+  {
     _id: "1",
     slug: "nha-cua-va-doi-song",
     title: "Nhà cửa và đời sống",
