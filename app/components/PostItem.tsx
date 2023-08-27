@@ -55,9 +55,9 @@ const PostItem = ({
             <h3 className="mt-3 text-lg font-semibold leading-6 text-neutral-900 dark:text-white">
               {post.title}
             </h3>
-            <p className="mt-5 line-clamp-3 text-sm leading-6 text-neutral-600 dark:text-neutral-400">
+            <div className="mt-5 line-clamp-3 text-sm leading-6 text-neutral-600 dark:text-neutral-400">
               {isShowDescription && <div>{post.description}</div>}
-            </p>
+            </div>
           </div>
           {/* <div className="relative mt-8 flex items-center gap-x-4 border-t border-neutral-900/5 pt-6 dark:border-neutral-200/5">
             <Image

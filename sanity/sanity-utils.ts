@@ -6,6 +6,7 @@ import clientConfig from "./config/client-config";
 import { Page } from "@/types/Page";
 import { Category } from "@/types/Category";
 import { Post } from "@/types/Post";
+import { resolve } from "path";
 
 export async function getProjects(): Promise<Project[]> {
   return createClient(clientConfig).fetch(

@@ -1,0 +1,14 @@
+/** @format */
+
+export const CATEGORY_LIST = [
+  {
+    _id: "1",
+    slug: "nha-cua-va-doi-song",
+    title: "Nhà cửa và đời sống",
+  },
+  {
+    _id: "2",
+    slug: "dien-tu-gia-dung",
+    title: "Điện tử gia dụng",
+  },
+];

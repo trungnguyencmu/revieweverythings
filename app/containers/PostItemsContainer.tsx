@@ -1,10 +1,7 @@
-"use client"
 import { getPostsWithCategoryName } from '@/sanity/sanity-utils';
-import React, { useEffect, useState } from 'react';
 import PostItem from '../components/PostItem';
-import { Post } from '@/types/Post';
 
-const PostItemsContainer = ({
+export default async function PostItemsContainer({
   slug,
   wrapClass = "md:flex md:flex-wrap mt-1 md:gap-4",
   itemClass = "md:w-1/4 md:mt-0",
@@ -14,18 +11,10 @@ const PostItemsContainer = ({
   wrapClass?: string;
   itemClass?: string;
   postItemClass?: string;
-}) => {
-  const [posts, setPosts] = useState<Post[]>([]);
-  useEffect(() => {
-    const fetchData = () => {
-      getPostsWithCategoryName(slug, 0, 5)
-        .then((tmpPosts) => {
-          setPosts(tmpPosts);
-        })
-        .catch(console.error);
-    };
-    fetchData();
-  }, [slug]);
+}){
+
+
+  const posts = await getPostsWithCategoryName(slug, 0, 5);
   return (
     <div className={wrapClass}>
       {posts.map((post) => (
@@ -36,4 +25,3 @@ const PostItemsContainer = ({
     </div>
   );
 };
-export default PostItemsContainer;

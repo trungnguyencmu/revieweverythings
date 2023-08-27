@@ -1,12 +1,11 @@
 /** @format */
-"use client"
-import { Suspense } from "react";
-import CategorySectionContainer from "../containers/CategorySectionContainer";
+"use client";
 import Image from "next/image";
+import { Suspense } from "react";
 import Loading from "../components/Loading";
+import CategorySectionContainer from "../containers/CategorySectionContainer";
 
 export default function Home() {
-  
   return (
     <Suspense fallback={<Loading />}>
       <div>
