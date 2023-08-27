@@ -7,8 +7,6 @@ type Props = {
   params: { category: string };
 };
 
-export default async function Category({ params }: Props) {
-  return (
-    <CategoryPostListPage slug={params.category}/>
-  );
-};
+export default async function Page({ params }: Props) {
+  return <CategoryPostListPage slug={params.category} />;
+}

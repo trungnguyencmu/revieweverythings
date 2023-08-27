@@ -23,6 +23,9 @@ const config: Config = {
       gap: {
         "8": "2rem",
       },
+      padding: {
+        "p-4": "1rem",
+      },
     },
   },
   plugins: [],

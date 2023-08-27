@@ -20,8 +20,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="bg-neutral-100 scrollbar-hide dark:bg-neutral-900">
         <Header />
         <main className="bg-slate-50">
-          <div className="container px-4 mx-auto md:flex md:items-center py-8">
-            {children}
+          <div className="container px-md-4 px-0 mx-auto md:flex md:items-center py-4 py-md-8">
+            <div className="bg-white p-4">{children}</div>
           </div>
         </main>
         {/* container px-4 mx-auto md:flex md:items-center */}
