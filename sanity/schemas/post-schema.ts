@@ -13,6 +13,11 @@ export default defineType({
       type: "string",
     }),
     defineField({
+      name: "isPublished",
+      title: "Published",
+      type: "boolean",
+    }),
+    defineField({
       name: "description",
       title: "Description",
       type: "string",
@@ -52,6 +57,9 @@ export default defineType({
     }),
   ],
 
+  initialValue: {
+    isPublished: false,
+  },
   preview: {
     select: {
       title: "title",

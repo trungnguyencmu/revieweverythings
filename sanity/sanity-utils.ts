@@ -102,12 +102,12 @@ export async function getCategory(slug: string): Promise<Category> {
 }
 
 export async function getPostsWithCategoryName(
-  slug: string,
+  slug = "",
   from = 0,
   to = 10
 ): Promise<Post[]> {
   return createClient(clientConfig).fetch(
-    groq`*[_type == "post" && $keyword in categories[]->slug.current][${from}...${to}] | order(_createdAt asc){
+    groq`*[_type == "post" && isPublished && $keyword in categories[]->slug.current][${from}...${to}] | order(_createdAt asc){
         _id,
         _createdAt,
         title,
@@ -143,7 +143,7 @@ export async function getPost(slug: string): Promise<Post> {
 `;
 
   return createClient(clientConfig).fetch(
-    groq`*[_type == "post" && slug.current == $slug][0]{
+    groq`*[_type == "post" && isPublished && slug.current == $slug][0]{
       _id,
       _createdAt,
       title,
