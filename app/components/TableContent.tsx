@@ -32,7 +32,7 @@ const TableContent = ({ body }: { body: PortableTextBlock[] }) => {
     },
   };
   return (
-    <div className="flex flex-col border-dashed border-dashed border-2 border-indigo-600 p-4 w-1/2 my-4">
+    <div className="flex flex-col border-dashed border-dashed border-2 border-indigo-600 p-4 md:w-1/2 my-4">
       <div className="title-font font-medium text-gray-900 section-heading text-center">
         Mục Lục
       </div>
