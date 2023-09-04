@@ -1,19 +1,20 @@
 /** @format */
 
-import { getPostsWithCategoryName } from "@/sanity/sanity-utils";
-import PostItem from "../components/PostItem";
+import { getPostsWithCategoryName } from '@/sanity/sanity-utils';
+import PostItem from '../components/PostItem';
 
 export default async function PostItemsContainer({
-  slug = "",
-  wrapClass = "md:flex md:flex-wrap mt-1 md:gap-4",
-  itemClass = "md:w-1/4 md:mt-0",
-  postItemClass = "",
+  slug = '',
+  wrapClass = 'md:flex md:flex-wrap mt-1 md:gap-4',
+  itemClass = 'md:w-1/4 md:mt-0',
+  postItemClass = '',
 }: {
   slug?: string;
   wrapClass?: string;
   itemClass?: string;
   postItemClass?: string;
 }) {
+  console.log('slug', slug);
   const posts = await getPostsWithCategoryName(slug, 0, 5);
   return (
     <div className={wrapClass}>
