@@ -6,6 +6,7 @@ import clientConfig from "./config/client-config";
 import { Page } from "@/types/Page";
 import { Category } from "@/types/Category";
 import { Post } from "@/types/Post";
+import { resolve } from "path";
 
 export async function getProjects(): Promise<Project[]> {
   return createClient(clientConfig).fetch(
@@ -18,6 +19,23 @@ export async function getProjects(): Promise<Project[]> {
       url,
       content
     }`
+  );
+}
+
+export async function getPostsFollowCategory(slug: string): Promise<Project[]> {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "post" && $keyword in categories[]->slug.current]{
+          _id,
+          _createdAt,
+          title,
+          "mainImage": mainImage.asset->url,
+          categories[] -> {
+            title,
+            slug
+          },
+          "slug": slug.current,
+        }`,
+    { keyword: slug }
   );
 }
 
@@ -71,12 +89,29 @@ export async function getCategories(): Promise<Category[]> {
   );
 }
 
-export async function getPostsWithCategoryName(category: Category): Promise<Post[]> {
+export async function getCategory(slug: string): Promise<Category> {
   return createClient(clientConfig).fetch(
-    groq`*[_type == "post" && $keyword in categories[]->slug.current]{
+    groq`*[_type == "category" && slug.current == $slug][0]{
+      _id,
+      _createdAt,
+      title,
+      "slug": slug.current,
+    }`,
+    { slug }
+  );
+}
+
+export async function getPostsWithCategoryName(
+  slug = "",
+  from = 0,
+  to = 10
+): Promise<Post[]> {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "post" && isPublished && $keyword in categories[]->slug.current][${from}...${to}] | order(_createdAt asc){
         _id,
         _createdAt,
         title,
+        description,
         "mainImage": mainImage.asset->url,
         categories[] -> {
           title,
@@ -84,7 +119,7 @@ export async function getPostsWithCategoryName(category: Category): Promise<Post
         },
         "slug": slug.current,
       }`,
-    { keyword: category.slug }
+    { keyword: slug }
   );
 }
 
@@ -100,13 +135,15 @@ export async function getPost(slug: string): Promise<Post> {
       // then we define that if a child of the markDef array is of the type internalLink, we want to get the referenced doc value of slug and combine that with a / 
       _type == "internalLink" => { "href": "/"+ @.reference-> slug.current },
     },
-    _type == "product" => {'title': @.reference-> _ref},
-  },
-  
+    _type == "image" => {
+      ...,
+      asset->
+    }
+  }
 `;
 
   return createClient(clientConfig).fetch(
-    groq`*[_type == "post" && slug.current == $slug][0]{
+    groq`*[_type == "post" && isPublished && slug.current == $slug][0]{
       _id,
       _createdAt,
       title,
@@ -119,12 +156,3 @@ export async function getPost(slug: string): Promise<Post> {
     { slug }
   );
 }
-// export type Post = {
-//   _id: string;
-//   _createdAt: Date;
-//   title: string;
-//   description: string;
-//   slug: string;
-//   mainImage: string;
-//   body: PortableTextBlock[];
-// };
