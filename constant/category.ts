@@ -16,4 +16,9 @@ export const CATEGORY_LIST = [
     slug: "dien-tu-gia-dung",
     title: "Điện tử gia dụng",
   },
+  {
+    _id: "3",
+    slug: "lam-dep",
+    title: "Làm đẹp",
+  },
 ];
