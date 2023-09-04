@@ -1,9 +1,9 @@
 /** @format */
-"use client";
-import Image from "next/image";
-import { Suspense } from "react";
-import Loading from "../components/Loading";
-import CategorySectionContainer from "../containers/CategorySectionContainer";
+'use client';
+import Image from 'next/image';
+import { Suspense } from 'react';
+import Loading from '../components/Loading';
+import CategorySectionContainer from '../containers/CategorySectionContainer';
 
 export default function Home() {
   return (
@@ -16,9 +16,15 @@ export default function Home() {
                 Khám Phá, So Sánh, Quyết Định
               </h1>
               <h2>Điểm Đến Đánh Giá Sản Phẩm Tối Ưu Của Bạn</h2>
-              <button className="bg-indigo-600 text-white py-2 px-6 rounded-full text-xl mt-6">
-                Bắt đầu nào
-              </button>
+              <div className="mt-6">
+                <a
+                  className="bg-indigo-600 text-white py-2 px-6 rounded-full text-xl "
+                  href="#category-list"
+                >
+                  Bắt đầu nào
+                </a>
+              </div>
+
               <div className=""></div>
               <div className="mt-4 flex flex-row items-center justify-center">
                 <Image
@@ -68,7 +74,9 @@ export default function Home() {
           </div>
         </div>
         <hr />
-        <CategorySectionContainer />
+        <div id="category-list">
+          <CategorySectionContainer />
+        </div>
       </div>
     </Suspense>
   );
