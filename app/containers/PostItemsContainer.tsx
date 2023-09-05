@@ -14,7 +14,6 @@ export default async function PostItemsContainer({
   itemClass?: string;
   postItemClass?: string;
 }) {
-  console.log('slug', slug);
   const posts = await getPostsWithCategoryName(slug, 0, 5);
   return (
     <div className={wrapClass}>

@@ -1,14 +1,14 @@
 /** @format */
 
-import { Post } from "@/types/Post";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import { Post } from '@/types/Post';
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
 
 const PostItem = ({
   post,
   isShowDescription = false,
-  wrapClass = "flex-col",
+  wrapClass = 'flex-col',
 }: {
   post: Post;
   isShowDescription?: boolean;
@@ -18,7 +18,7 @@ const PostItem = ({
     <div className="item-post-component">
       <Link
         className={`flex items-start justify-between hover:opacity-80 gap-8 ${wrapClass}`}
-        href={`${post.slug}`}
+        href={`/${post.slug}`}
       >
         <div className="relative w-full">
           <Image
@@ -29,14 +29,14 @@ const PostItem = ({
             decoding="async"
             data-nimg="1"
             className="aspect-[16/9] w-full rounded-3xl bg-neutral-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
-            style={{ color: "transparent" }}
+            style={{ color: 'transparent' }}
           />
           <div className="absolute inset-0 rounded-3xl ring-1 ring-inset ring-neutral-900/10"></div>
         </div>
         <div className="max-w-xl">
           <div className="flex items-center gap-x-4 text-xs text-neutral-500 dark:text-neutral-400">
             {/* <time>March 5, 2023</time> */}
-            <time>{String(new Date(post._createdAt).toLocaleDateString("en-US"))}</time>
+            <time>{String(new Date(post._createdAt).toLocaleDateString('en-US'))}</time>
             {/* <svg
               stroke="currentColor"
               fill="currentColor"

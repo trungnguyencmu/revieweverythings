@@ -3,7 +3,6 @@
 import PostReview from "@/app/components/PostReview";
 import { getPost } from "@/sanity/sanity-utils";
 import type { Metadata } from "next";
-import { Suspense } from "react";
 
 type Props = {
   params: { slug: string };

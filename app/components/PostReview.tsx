@@ -15,7 +15,6 @@ type Props = {
 
 const PostReview = async ({ params }: Props) => {
   const page = await getPost(params.slug);
-
   const customBlockComponents = {
     block: ({ node, children }: any) => {
       const style = node.style || 'normal';

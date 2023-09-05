@@ -150,9 +150,21 @@ export async function getPost(slug: string): Promise<Post> {
       description,
       "slug": slug.current,
       content,
+      categories[] -> {
+        title,
+        "slug": slug.current,
+      },
       "mainImage": mainImage.asset->url,
+      "estimatedReadingTime": round(length(pt::text(body)) / 5 / 180 ),
       ${bodyField}
     }`,
     { slug }
+  );
+}
+
+// GROQ All Slugs
+export async function allSlugsQuery(): Promise<string[]> {
+  return createClient(clientConfig).fetch(
+    groq`*[defined(slug.current)][].slug.current`
   );
 }

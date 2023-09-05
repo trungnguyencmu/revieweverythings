@@ -1,13 +1,13 @@
 /** @format */
 
-"use client";
+'use client';
 
-import "@fortawesome/fontawesome-svg-core/styles.css";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Link from "next/link";
-import React from "react";
-import SearchBar from "./SearchBar";
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Link from 'next/link';
+import React from 'react';
+import SearchBar from './SearchBar';
 
 const Header: React.FC = () => {
   return (
@@ -20,8 +20,8 @@ const Header: React.FC = () => {
               className="font-bold text-xl bg-gradient-to-r from-orange-400
                   via-red-500 to-purple-600 bg-clip-text text-transparent flex gap-2 items-center"
             >
-              <div>Review Everythings</div>
-              <FontAwesomeIcon icon={faSearch} style={{ color: "blue" }} size="xs" />
+              <h1>Review Everythings</h1>
+              <FontAwesomeIcon icon={faSearch} style={{ color: 'blue' }} size="xs" />
             </Link>
           </div>
 
