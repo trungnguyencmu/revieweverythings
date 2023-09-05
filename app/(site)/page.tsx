@@ -33,6 +33,7 @@ export default function Home() {
                   className="d-block max-w-full rounded shadow-md"
                   width={320}
                   height={400}
+                  loading="lazy"
                 />
               </div>
             </div>

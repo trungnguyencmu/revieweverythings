@@ -98,6 +98,7 @@ const PostReview = async ({ params }: Props) => {
             alt={value?.alt}
             width={500}
             height={500}
+            loading="lazy"
           />
         );
       },
