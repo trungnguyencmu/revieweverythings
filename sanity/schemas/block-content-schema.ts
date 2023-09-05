@@ -65,11 +65,5 @@ export default defineType({
       type: "image",
       options: { hotspot: true },
     }),
-    defineArrayMember({
-      title: "Product",
-      name: "product",
-      type: "reference",
-      to: [{ type: "product" }],
-    }),
   ],
 });

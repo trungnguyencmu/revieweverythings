@@ -56,18 +56,10 @@ export default {
       },
     },
     {
-      title: "Product",
-      name: "product",
-      type: "reference",
-      to: [{ type: "product" }],
-      // product embed
-    },
-    {
       title: "Post",
       name: "post",
       type: "reference",
       to: [{ type: "post" }],
-      // product embed
     },
     {
       title: "Image",

@@ -168,3 +168,26 @@ export async function allSlugsQuery(): Promise<string[]> {
     groq`*[defined(slug.current)][].slug.current`
   );
 }
+
+
+export async function findPost(
+  name = "",
+  from = 0,
+  to = 10
+): Promise<Post[]> {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "post" && isPublished && title match keyword][${from}...${to}] | order(_createdAt asc){
+        _id,
+        _createdAt,
+        title,
+        description,
+        "mainImage": mainImage.asset->url,
+        categories[] -> {
+          title,
+          slug
+        },
+        "slug": slug.current,
+      }`,
+    { keyword: name }
+  );
+}
