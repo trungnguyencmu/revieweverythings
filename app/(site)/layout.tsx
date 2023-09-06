@@ -5,6 +5,9 @@ import '../globals.css';
 import Image from 'next/image';
 import Header from '../components/Header';
 import type { Metadata } from 'next';
+import GoogleAnalytics from '../components/GoogleAnalytics';
+import CookieBanner from '../components/cookiebanner';
+// import GoogleAnalytics from '@/components/GoogleAnalytics';
 
 export const metadata: Metadata = {
   title:
@@ -19,11 +22,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
+      <GoogleAnalytics GA_MEASUREMENT_ID="G-VLK1WMB23F" />
       <body className="bg-neutral-100 scrollbar-hide dark:bg-neutral-900">
         <Header />
         <main className="bg-slate-50">
           <div className="container px-md-4 px-0 mx-auto md:flex md:items-center py-4 py-md-8">
-            <div className="bg-white p-4 md:p-8">{children}</div>
+            <div className="bg-white p-4 md:p-8">
+              {children}
+              <CookieBanner />
+            </div>
           </div>
         </main>
         {/* container px-4 mx-auto md:flex md:items-center */}
@@ -46,7 +53,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <div>
                   <Link
                     passHref
-                    href="https://www.facebook.com/profile.php?id=61550789769817"
+                    href="https://www.facebook.com/revieweverything2023"
                     className="mr-4 hover:underline md:mr-6 "
                   >
                     <svg

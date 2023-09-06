@@ -1,5 +1,4 @@
 /** @format */
-'use client';
 import Image from 'next/image';
 import { Suspense } from 'react';
 import Loading from '../components/Loading';

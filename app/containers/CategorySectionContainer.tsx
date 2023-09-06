@@ -1,13 +1,12 @@
-import { getCategories } from '@/sanity/sanity-utils';
+/** @format */
 import CategoryComponent from '../components/Category';
 import PostItemsContainer from './PostItemsContainer';
 import { Suspense } from 'react';
 import SkeletonPost from '../components/Skeleton/SkeletonPost';
 import { CATEGORY_LIST } from '@/constant/category';
 import { Category } from '@/types/Category';
- function CategorySectionContainer (){
-  const categories = CATEGORY_LIST as Category[]
-
+function CategorySectionContainer() {
+  const categories = CATEGORY_LIST as Category[];
   return (
     <>
       {categories.map((category, index) => (
@@ -26,5 +25,5 @@ import { Category } from '@/types/Category';
       ))}
     </>
   );
-};
+}
 export default CategorySectionContainer;
