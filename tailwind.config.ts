@@ -23,6 +23,13 @@ const config: Config = {
         "7": "2.5rem",
         "8": "3rem",
       },
+      margin: {
+        "4": "1rem",
+        "5": "1.5rem",
+        "6": "2rem",
+        "7": "2.5rem",
+        "8": "3rem",
+      },
     },
   },
   plugins: [],

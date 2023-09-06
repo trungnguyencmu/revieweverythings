@@ -11,7 +11,7 @@ import { Category } from '@/types/Category';
   return (
     <>
       {categories.map((category, index) => (
-        <div key={category._id} className="py-6">
+        <div key={category._id} className="py-3">
           <CategoryComponent category={category} />
 
           <Suspense fallback={<SkeletonPost />}>

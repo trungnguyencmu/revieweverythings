@@ -6,7 +6,7 @@ import PostItem from '../components/PostItem';
 export default async function PostItemsContainer({
   slug = '',
   wrapClass = 'md:flex md:flex-wrap mt-1 md:gap-4',
-  itemClass = 'md:w-1/4 md:mt-0',
+  itemClass = 'md:w-1/4 md:mt-0 mb-8 md:mb-0',
   postItemClass = '',
 }: {
   slug?: string;

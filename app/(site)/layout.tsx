@@ -44,7 +44,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </Link>
               <div className="flex flex-wrap gap-4 items-center sm:mb-0 h-4">
                 <div>
-                  <Link href="#" className="mr-4 hover:underline md:mr-6 ">
+                  <Link
+                    passHref
+                    href="https://www.facebook.com/profile.php?id=61550789769817"
+                    className="mr-4 hover:underline md:mr-6 "
+                  >
                     <svg
                       className="w-6 text-blue-600 fill-current"
                       xmlns="http://www.w3.org/2000/svg"

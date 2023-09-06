@@ -25,7 +25,7 @@ const Header: React.FC = () => {
             </Link>
           </div>
 
-          <div className="md:hidden mt-3">
+          {/* <div className="md:hidden mt-3">
             <SearchBar />
           </div>
           <div
@@ -33,7 +33,7 @@ const Header: React.FC = () => {
             id="navbar-collapse"
           >
             <SearchBar />
-          </div>
+          </div> */}
         </div>
       </nav>
     </div>
