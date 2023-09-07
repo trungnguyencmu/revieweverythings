@@ -27,7 +27,7 @@ export default function Home() {
               <div className=""></div>
               <div className="mt-4 flex flex-row items-center justify-center">
                 <Image
-                  src="/images/review.png"
+                  src="/images/review_1.png"
                   alt="review everything"
                   className="d-block max-w-full rounded shadow-md"
                   width={320}

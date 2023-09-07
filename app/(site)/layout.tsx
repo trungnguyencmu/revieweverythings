@@ -7,7 +7,6 @@ import Header from '../components/Header';
 import type { Metadata } from 'next';
 import GoogleAnalytics from '../components/GoogleAnalytics';
 import CookieBanner from '../components/cookiebanner';
-// import GoogleAnalytics from '@/components/GoogleAnalytics';
 
 export const metadata: Metadata = {
   title:
@@ -33,7 +32,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </div>
           </div>
         </main>
-        {/* container px-4 mx-auto md:flex md:items-center */}
         <footer className="bg-white shadow dark:bg-gray-900 ">
           <div className="container px-4 mx-auto md:py-8 py-4">
             <div className="sm:flex sm:items-center sm:justify-between">
