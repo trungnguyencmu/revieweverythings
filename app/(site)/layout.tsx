@@ -33,8 +33,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
         <footer className="bg-white shadow dark:bg-gray-900 ">
           <div className="container px-4 mx-auto md:py-8 py-4">
-            <div className="sm:flex sm:items-center sm:justify-between">
-              <Link href="/" className="flex items-center mb-4 sm:mb-0">
+            <div className="sm:flex sm:items-center sm:justify-between ">
+              <Link href="/" className="flex items-center mb-4 sm:mb-0 justify-center">
                 <Image
                   src="/logo.png"
                   className="h-8 mr-3"
@@ -46,7 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   Review Everythings
                 </span>
               </Link>
-              <div className="flex flex-wrap gap-4 items-center sm:mb-0 h-4">
+              <div className="flex flex-wrap gap-4 items-center sm:mb-0 h-4 justify-center">
                 <Link passHref href="https://www.facebook.com/revieweverything2023">
                   <svg
                     className="w-6 text-blue-600 fill-current"
@@ -68,7 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </div>
             </div>
             <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-            <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
+            <span className="block text-sm text-gray-500 text-center dark:text-gray-400">
               © 2023{' '}
               <a href="https://revieweverythings.com/" className="hover:underline">
                 Review Everythings

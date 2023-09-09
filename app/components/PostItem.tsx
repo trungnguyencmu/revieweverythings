@@ -9,10 +9,12 @@ const PostItem = ({
   post,
   isShowDescription = false,
   wrapClass = 'flex-col',
+  imageClass = 'aspect-[16/9] w-full rounded-3xl bg-neutral-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]'
 }: {
   post: Post;
   isShowDescription?: boolean;
   wrapClass?: string;
+  imageClass?: string;
 }) => {
   return (
     <div className="item-post-component">
@@ -28,7 +30,7 @@ const PostItem = ({
             height="360"
             decoding="async"
             data-nimg="1"
-            className="aspect-[16/9] w-full rounded-3xl bg-neutral-100 object-cover sm:aspect-[2/1] lg:aspect-[3/2]"
+            className={imageClass}
             style={{ color: 'transparent' }}
           />
           <div className="absolute inset-0 rounded-3xl ring-1 ring-inset ring-neutral-900/10"></div>

@@ -14,7 +14,9 @@ const CategoryPostListPage = async ({ slug }: { slug: string }) => {
         slug={slug}
         wrapClass="flex flex-col gap-8"
         itemClass="w-full"
-        postItemClass="flex flex-row"
+        postItemClass="flex md:flex-row flex-col"
+        imageClass="rounded-3xl bg-neutral-100 object-cover sm:aspect-[2/1]"
+
       />
     </div>
   );
