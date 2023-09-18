@@ -7,6 +7,7 @@ import Header from '../components/Header';
 import type { Metadata } from 'next';
 import GoogleAnalytics from '../components/GoogleAnalytics';
 import CookieBanner from '../components/cookiebanner';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'Đánh Giá Mọi Thứ - Review everything',
@@ -19,11 +20,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="vi">
       <head>
         <link rel="icon" href="/favicon.ico" />
-        <script
+        <Script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5014401227867026"
           crossOrigin="anonymous"
-        ></script>
+          strategy="lazyOnload"
+        />
       </head>
       <GoogleAnalytics GA_MEASUREMENT_ID="G-VLK1WMB23F" />
       <body className="bg-neutral-100 scrollbar-hide dark:bg-neutral-900">
