@@ -10,6 +10,7 @@ import React from 'react';
 import SearchBar from './SearchBar';
 
 const Header: React.FC = () => {
+
   return (
     <div className="header-2">
       <nav className="bg-white py-2 md:py-4">
@@ -25,7 +26,7 @@ const Header: React.FC = () => {
             </Link>
           </div>
 
-          {/* <div className="md:hidden mt-3">
+          <div className="md:hidden mt-3">
             <SearchBar />
           </div>
           <div
@@ -33,7 +34,7 @@ const Header: React.FC = () => {
             id="navbar-collapse"
           >
             <SearchBar />
-          </div> */}
+          </div>
         </div>
       </nav>
     </div>

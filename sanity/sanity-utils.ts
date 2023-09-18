@@ -6,7 +6,6 @@ import clientConfig from "./config/client-config";
 import { Page } from "@/types/Page";
 import { Category } from "@/types/Category";
 import { Post } from "@/types/Post";
-import { resolve } from "path";
 
 export async function getProjects(): Promise<Project[]> {
   return createClient(clientConfig).fetch(
@@ -175,8 +174,9 @@ export async function findPost(
   from = 0,
   to = 10
 ): Promise<Post[]> {
+  console.log('name', name);
   return createClient(clientConfig).fetch(
-    groq`*[_type == "post" && isPublished && title match keyword][${from}...${to}] | order(_createdAt asc){
+    groq`*[_type == "post" && isPublished && title match "${name}*"][${from}...${to}] | order(_createdAt asc){
         _id,
         _createdAt,
         title,
@@ -188,6 +188,5 @@ export async function findPost(
         },
         "slug": slug.current,
       }`,
-    { keyword: name }
   );
 }

@@ -29,6 +29,10 @@ export default async function sitemap() {
       url: baseUrl,
       lastModified: new Date(),
     },
+    {
+      url: `${baseUrl}/tim-kiem`,
+      lastModified: new Date(),
+    },
     ...postsUrls,
     ...categoriesUrls,
   ];

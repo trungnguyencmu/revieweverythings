@@ -1,20 +1,38 @@
 /** @format */
+'use client';
+import React, { useRef, useState } from 'react';
+// import { useRouter } from 'next/router';
 
-import React, { useRef } from "react";
+import { useSearchContext } from '../(site)/context/SearchContext';
+import { useRouter } from 'next/navigation';
 
 const SearchBar: React.FC = () => {
+  const router = useRouter();
+  const [searchType, setSearchType] = useState('');
+  const { search, setSearch } = useSearchContext();
+
   const clickPoint = useRef<HTMLDivElement>(null);
 
   const handleFocus = () => {
     if (clickPoint.current) {
-      clickPoint.current.style.display = "none";
+      clickPoint.current.style.display = 'none';
     }
   };
 
   const handleBlur = () => {
     if (clickPoint.current) {
-      clickPoint.current.style.display = "block";
+      clickPoint.current.style.display = 'block';
     }
+  };
+
+  const handleChangeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchType(e.target.value);
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSearch(searchType);
+    router.push('/tim-kiem');
   };
 
   return (
@@ -34,13 +52,16 @@ const SearchBar: React.FC = () => {
             ></path>
           </svg>
         </div>
-        <input
-          type="text"
-          className="block p-2 pl-10 w-70 text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:pl-3"
-          placeholder="Search Here..."
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-        />
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            className="block p-2 pl-10 w-70 text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:pl-3"
+            placeholder="Search Here..."
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            onChange={handleChangeValue}
+          />
+        </form>
       </div>
     </div>
   );
