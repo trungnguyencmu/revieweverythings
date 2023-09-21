@@ -137,7 +137,7 @@ export async function getPost(slug: string): Promise<Post> {
     _type == "image" => {
       ...,
       asset->
-    }
+    },
   }
 `;
 

@@ -104,6 +104,7 @@ const PostReview = async ({ params }: Props) => {
       },
     },
   };
+  console.log('page?.body', page?.body);
   return (
     <Suspense fallback={<Loading />}>
       <div>
