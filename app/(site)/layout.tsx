@@ -13,7 +13,7 @@ import { SearchContextProvider } from './context/SearchContext';
 export const metadata: Metadata = {
   title: 'Đánh Giá Mọi Thứ - Review everything',
   description:
-    'Khám phá những bài đánh giá chân thành về mọi thứ: sản phẩm, dịch vụ, sách, phim và nhiều hơn nữa. Xem nhận xét chi tiết và đánh giá chất lượng để giúp bạn đưa ra quyết định thông thái. Đọc ngay để có cái nhìn toàn diện về những gì bạn quan tâm. (review everything)',
+    'Khám phá những bài đánh giá chân thành về mọi thứ: sản phẩm, dịch vụ, sách, phim và nhiều hơn nữa. Xem nhận xét chi tiết và đánh giá chất lượng để giúp bạn đưa ra quyết định thông thái. Đọc ngay để có cái nhìn toàn diện về những gì bạn quan tâm',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
